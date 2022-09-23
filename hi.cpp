@@ -1693,4 +1693,120 @@ public:
     }
 };
 
+template <typename T>
+class queue_generic
+{
+private:
+    T* arr = NULL;
+    int capacity = 5;
+    int size = 0;
+    int index_pop = 0;
+    int index_push = -1;
+    bool auto_resize = true;
+
+public:
+    queue_generic(int cap, bool resize = true) 
+    {                                           
+        auto_resize = resize;
+        capacity = cap;
+        arr = new T[capacity];
+    }
+
+    queue_generic(bool resize = true)
+    {
+        arr = new T[capacity];
+        auto_resize = resize;
+    }
+
+    ~queue_generic()
+    {
+        if(arr)
+            delete[] arr;
+    }
+
+    int get_capacity()
+    {
+        return capacity;
+    }
+
+    int get_size()
+    {
+        return size;
+    }
+
+//Returns true if push succeds else returns false
+    bool push(T data)
+    {
+        if (size >= capacity)
+        {
+            if(auto_resize == false)
+                return 0;
+            else 
+            {   
+                capacity = 2*capacity;
+                T* arr2 = arr;
+                arr = new(nothrow) T[capacity];
+                if(!arr) 
+                    return 0;
+                for(int i=index_pop; i<index_pop+size; i++)
+                {
+                    arr[i-index_pop] = arr2[i%capacity];
+                }
+                index_push=size;
+                index_pop=0;
+                arr[size] = data;
+                size++;
+                delete[] arr2;
+                arr2 = NULL;
+            }
+        }
+        else
+        {
+            index_push = (index_push+1)%capacity;
+            arr[index_push] = data;
+            size++;
+        }
+        return 1;
+    }
+
+//Throw exception if the queue is empty
+    T pop()
+    {
+        if(is_empty())
+            throw;
+
+        T num_pop = arr[index_pop];
+        index_pop = (index_pop+1)%capacity;
+        size--;
+        return num_pop;
+    }
+
+    void print()
+    {
+        for(int i=index_pop; i<index_pop+size; i++)
+        {
+            cout << arr[i%capacity] << " ";
+        }
+        cout << endl;
+    }
+
+    bool is_empty()
+    {
+        if(size == 0)
+            return true;
+        else return false;
+    }    
+
+//Throw exception if the queue is empty
+    T peek()
+    {
+        if(is_empty())
+        {
+            throw;
+        }
+        return arr[index_pop];
+    }
+};
+
+
 
