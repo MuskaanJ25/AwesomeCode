@@ -1001,18 +1001,6 @@ int minplatforms(int arr[], int dep[], int len)
     return platreq;
 }
 
-int mindiff(int a[], int len, int k)
-{
-    mergesort(a, len);
-    for (int i=0; i<len; i++)
-    {
-        if (a[i] < k)
-        {
-            a[i] = a[i] + k;
-        }
-    }
-}
-
 class Pet
 {
     private:
@@ -1180,4 +1168,529 @@ class linked_list
             size--;
         }
 };
+
+class circ_ll
+{
+private:
+    node* phead= NULL;
+    node* plast= NULL;
+    int size;
+
+public:
+    int get_size()
+    {
+        return size;
+    }
+
+    bool is_empty()
+    {
+        if(size == 0)
+        return true;
+        else
+        return false;
+    }
+
+    void push_back(int data)
+    {
+        node* pnew = new node();
+        pnew->data = data;
+        if(plast == NULL)
+        {
+            phead = pnew;
+            plast = pnew;
+        }
+        else
+        {
+            plast->pnext = pnew;
+            plast = pnew;
+        }
+        plast->pnext = phead;
+        size++;
+    }
+
+    void print()
+    {
+        node* pnode = phead;
+        cout << pnode->data << " ";
+        pnode = phead->pnext;
+        while(pnode != phead)
+        {
+            cout << pnode->data << " ";
+            pnode = pnode->pnext;
+        }
+        cout << endl;
+    }
+
+    void push_ahead(int data)
+    {
+        node* pnew = new node();
+        pnew->data = data;
+        if(plast == NULL)
+        {
+            phead = pnew;
+            plast = pnew;
+            plast->pnext = phead;
+        }
+        else
+        {
+            plast->pnext = pnew;
+            pnew->pnext = phead;
+            phead = pnew;
+        }
+        
+        size++;
+    }
+
+    node* search(int data)
+    {
+        node* pnode = phead;
+        if (pnode->data == data)
+        {
+            return phead;
+        }
+        pnode = pnode->pnext;
+        {
+            while(pnode != phead)
+            {
+                if (pnode->data == data)
+                {
+                    return pnode;
+                }
+                else 
+                    pnode = pnode->pnext;
+            }
+            return NULL;
+        }
+    }
+
+    void remove(int data)
+    { 
+        if(phead->pnext->data == data)
+        {
+            node* pdel = phead->pnext;
+            phead->pnext = phead->pnext->pnext;
+            delete pdel;
+        }
+        else
+        {
+            node* pnode = phead->pnext;
+            while(pnode != phead)
+            {
+                if(pnode->pnext->data == data)
+                {
+                    node* pdel = pnode->pnext;
+                    if(pdel == plast)
+                    {
+                        plast = pnode;
+                        pnode->pnext = pnode->pnext->pnext;
+                        delete pdel;
+                    }
+                    else if (pdel == phead)
+                    {
+                        plast->pnext = plast->pnext->pnext;
+                        phead = phead->pnext;
+                        delete pdel;
+                    }
+                    else
+                    {
+                        pnode->pnext = pnode->pnext->pnext;
+                        delete pdel;
+                    }
+                }
+                else 
+                    pnode = pnode->pnext;
+            }
+        }
+        size--;
+    }
+};
+
+class Person
+{
+    friend ostream& operator<<(ostream& out, const Person& person)
+    { 
+        out << "Person [Full name :" << person.get_full_name() << ", Age:" << person.get_age() << ", Address:" << person.get_address() << "]";
+        return out;
+    }
+public:
+    Person() = default;
+
+    Person(string_view fullname, int age, string_view address)
+    {
+        m_full_name = fullname;
+        m_age = age;
+        m_address = address;
+        cout << "const for person called " << endl;
+    }
+
+    Person(const Person& source) : m_full_name(source.m_full_name), m_age(source.m_age), m_address(source.m_address)
+    {
+        cout << "custom copy const for person called" <<endl;
+    }
+
+    ~Person()
+    {
+        cout << "dest for person called" << endl;
+    }
+    
+    string get_full_name() const
+    {
+        return m_full_name;
+    }
+    
+    int get_age()const
+    {
+        return m_age;
+    }
+    
+    string get_address() const
+    {
+        return m_address;
+    }
+
+public:
+    string m_full_name = "None";
+
+protected: 
+    int m_age = 0;
+
+private : 
+    string m_address = "None";
+};
+
+class Player : public Person
+{
+    friend ostream& operator<<(ostream& out, const Player& player)
+    {
+        out << "Player [Full name : " << player.get_full_name() << ",age : " << player.get_age() << ",address : " << player.get_address() << "]";
+        return out;
+    }
+public:
+    Player() = default;
+    ~Player()
+    {
+    }
+    
+    void play()
+    {
+        m_full_name = "Stef Curry"; 
+        m_age = 32; 
+    }
+private : 
+    int m_career_start_year = 0;
+    double m_salary = 0.0;
+    int health_factor = 0;
+
+};
+
+class Nurse : protected Person
+{
+	friend ostream& operator<<(ostream& out, const Nurse& operand)
+    {
+        out << "Nurse [Full name : " << operand.get_full_name() << ",age : " << operand.get_age() << ",address : " << operand.get_address() << ",practice certificate id : " << operand.practice_certificate_id << "]";
+        return out;
+    }
+
+public:
+	Nurse() = default;
+	~Nurse()
+    {
+    }
+	
+    void treat_unwell_person()
+    {
+        m_full_name = "Sick Man"; 
+        m_age = 28; 
+    }
+    
+private : 
+    int practice_certificate_id = 0;
+};
+
+class Engineer : public Person
+{
+    friend ostream& operator<<(ostream& out , const Engineer& operand)
+    {
+        out << "Engineer [Full name : " << operand.get_full_name() << ",age : " << operand.get_age() << ",address : " << operand.get_address() << ",contract_count : " << operand.contract_count << "]";
+        return out;   
+    }
+public:
+    Engineer() = default;
+    Engineer(string_view fullname, int age, string_view address, int contract_count_param) : Person(fullname, age, address), contract_count(contract_count_param)
+    {
+        cout << "const for engg called " << endl;
+    }
+
+    Engineer(const Engineer& source) : Person(source), contract_count(source.contract_count)
+    {
+        cout << "custom copy const for eng called" << endl;
+    }
+
+    ~Engineer()
+    {
+        cout << "dest for engg called " << endl;
+    }
+
+    void build_something()
+    {
+        m_full_name = "mr. X";
+        m_age = 43; 
+    }
+    
+protected:
+    using Person::get_full_name;
+    using Person::get_age;
+    using Person:: get_address;
+
+    
+    int get_contract_count() const
+    {
+        return contract_count;
+    }
+
+private: 
+    int contract_count = 0;
+};
+
+class CivilEngineer : public Engineer
+{
+    friend ostream& operator<<(ostream& out, const CivilEngineer& operand)
+    {
+        out << "CivilEngineer [Full name : " << operand.get_full_name() << ",age : " << operand.get_age() << ",address : " << operand.get_address() << ",contract_count : " << operand.get_contract_count() << ",speciality : " << operand.m_speciality << "]";
+        return out;
+    }
+public:
+    CivilEngineer()= default;
+    CivilEngineer(string_view fullname, int age, string_view address, int contract_count, string_view speciality) : Engineer(fullname, age, address, contract_count), m_speciality(speciality)
+    {
+        cout << "const for civil engg called " << endl;
+    }
+    CivilEngineer(const CivilEngineer& source) : Engineer(source), m_speciality(source.m_speciality)
+    {
+        cout << "custom copy const called for civil eng called" << endl;
+    }
+    ~CivilEngineer()
+    {
+        cout << "dest for civil engg called " << endl;
+    }
+    
+    void build_road()
+    {
+    }
+	
+private : 
+    string m_speciality{"None"};
+};
+
+class stack
+{
+private:
+    int* arr = NULL;
+    int capacity = 5;
+    int size = 0;
+    bool auto_resize = true;
+
+public:
+    stack(int cap, bool resize = true)
+    {
+        capacity = cap;
+        arr = new int(capacity);
+        auto_resize = resize;
+    }
+
+    stack(bool resize = true)
+    {
+        arr = new int(capacity);
+        auto_resize = resize;
+    }
+
+    ~stack()
+    {
+        if (arr)
+            delete arr;
+    }
+
+    int get_cap()
+    {
+        return capacity;
+    }
+
+    bool push(int data)
+    {
+        if (size<capacity)
+        {
+            arr[size] = data;
+            size++;
+        }
+        else
+        {
+            if (auto_resize == 0)
+                return 0;
+            else
+            {
+                capacity = capacity*2;
+                int* arr2 = arr;
+                arr = new(nothrow) int(capacity);
+                if(!arr)
+                    return 0;
+                for(int i=0; i<size; i++)
+                {
+                    arr[i] = arr2[i];
+                }
+                arr[size] = data;
+                size++;
+                delete arr2;
+                arr2 = NULL;
+            }
+        }
+        return 1;
+    }
+
+    int pop()
+    {
+        if(is_empty())
+        {
+            return INT_MIN;
+        }
+        size--;
+        return arr[size];
+    }
+
+    void print()
+    {
+        for(int i=0; i<size; i++)
+        {
+            cout << arr[i] << " ";
+        }
+        cout << endl;
+    }
+
+    bool is_empty()
+    {
+        if(size == 0)
+            return true;
+        else return false;
+    }
+
+    int peek()
+    {
+        if(is_empty())
+        {
+            return INT_MIN;
+        }
+        return arr[size-1];
+    }
+};
+
+class queue
+{
+private:
+    int* arr = NULL;
+    int capacity = 5;
+    int size = 0;
+    int index_pop = 0;
+    int index_push = -1;
+    bool auto_resize = true;
+
+public:
+    queue(int cap, bool resize = true) 
+    {                                           
+        auto_resize = resize;
+        capacity = cap;
+        arr = new int(capacity);
+    }
+
+    queue(bool resize = true)
+    {
+        arr = new int(capacity);
+        auto_resize = resize;
+    }
+
+    ~queue()
+    {
+        if(arr)
+            delete arr;
+    }
+
+    int get_capacity()
+    {
+        return capacity;
+    }
+
+    int get_size()
+    {
+        return size;
+    }
+
+    bool push(int data)
+    {
+        if (size >= capacity)
+        {
+            if(auto_resize == false)
+                return 0;
+            else 
+            {   
+                capacity = 2*capacity;
+                int* arr2 = arr;
+                arr = new(nothrow) int(capacity);
+                if(!arr) 
+                    return 0;
+                for(int i=index_pop; i<index_pop+size; i++)
+                {
+                    arr[i-index_pop] = arr2[i%capacity];
+                }
+                index_push=size;
+                index_pop=0;
+                arr[size] = data;
+                size++;
+                delete arr2;
+                arr2 = NULL;
+            }
+        }
+        else
+        {
+            index_push = (index_push+1)%capacity;
+            arr[index_push] = data;
+            size++;
+        }
+        return 1;
+    }
+
+    int pop()
+    {
+        if(is_empty())
+            return INT_MIN;
+
+        int num_pop = arr[index_pop];
+        index_pop = (index_pop+1)%capacity;
+        size--;
+        return num_pop;
+    }
+
+    void print()
+    {
+        for(int i=index_pop; i<index_pop+size; i++)
+        {
+            cout << arr[i%capacity] << " ";
+        }
+        cout << endl;
+    }
+
+    bool is_empty()
+    {
+        if(size == 0)
+            return true;
+        else return false;
+    }    
+
+    int peek()
+    {
+        if(is_empty())
+        {
+            return INT_MIN;
+        }
+        return arr[index_pop];
+    }
+};
+
 
