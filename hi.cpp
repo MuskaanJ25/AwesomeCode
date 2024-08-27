@@ -1,3 +1,5 @@
+// Some random cool stuff
+
 #include <iostream>
 #include <climits>
 #include <cctype>
