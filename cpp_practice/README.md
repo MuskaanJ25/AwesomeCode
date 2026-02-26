@@ -26,30 +26,25 @@ g++ -std=c++17 arrays/two_sum.cpp -O2 -o two_sum
 ### Strings
 - `valid_anagram.cpp` - Check if two strings are anagrams
 
-### Hashing
-- `top_k_frequent_elements.cpp` - Find k most frequent elements
+### Structs
+- `student_average.cpp` - Calculate average scores using structs
 
-### Stack
-- `valid_parentheses.cpp` - Check if parentheses are balanced
+### Multi-dimensional Arrays
+- `matrix_diagonal_sum.cpp` - Sum of diagonal elements in a matrix
+- `matrix_transpose.cpp` - Transpose a 2D matrix
+- `row_max_sum.cpp` - Find row with maximum sum
 
-### Linked List
-- `reverse_linked_list.cpp` - Reverse a singly linked list
-
-### Binary Search
-- `binary_search.cpp` - Classic binary search implementation
-
-### Dynamic Programming
-- `climbing_stairs.cpp` - Count ways to climb stairs
+### Recursion
+- `recursive_factorial.cpp` - Calculate factorial using recursion
+- `recursive_grid_paths.cpp` - Count paths in a grid using recursion
 
 ## Learning Path
 
 1. **Start with Arrays**: `two_sum.cpp`, `best_time_to_buy_and_sell_stock.cpp`
 2. **Move to Strings**: `valid_anagram.cpp`
-3. **Learn Hashing**: `top_k_frequent_elements.cpp`
-4. **Practice Stack**: `valid_parentheses.cpp`
-5. **Linked Lists**: `reverse_linked_list.cpp`
-6. **Binary Search**: `binary_search.cpp`
-7. **Intro to DP**: `climbing_stairs.cpp`
+3. **Learn Structs**: `student_average.cpp`
+4. **Multi-dimensional Arrays**: `matrix_diagonal_sum.cpp`, `matrix_transpose.cpp`, `row_max_sum.cpp`
+5. **Practice Recursion**: `recursive_factorial.cpp`, `recursive_grid_paths.cpp`
 
 ## File Format
 

@@ -35,34 +35,31 @@
  */
 
 // Approach:
-// Use a hash map to store the complement of each number (target - nums[i]).
-// As we iterate through the array, we check if the current number is already in the map.
-// If yes, we've found our pair and return both indices.
-// If no, we store the complement along with the current index.
+// Use nested loops to check all possible pairs of elements.
+// For each element at index i, check all elements at indices j > i.
+// If nums[i] + nums[j] equals target, return the indices.
+// This is a straightforward brute force approach without using any complex data structures.
 //
 // Complexity:
-// - Time Complexity: O(n) - single pass through the array
-// - Space Complexity: O(n) - hash map stores up to n entries
+// - Time Complexity: O(n²) - nested loops through the array
+// - Space Complexity: O(1) - only using a few variables, no extra data structures
 
 #include <iostream>
 #include <vector>
-#include <unordered_map>
 using namespace std;
 
 vector<int> twoSum(vector<int>& nums, int target) {
-    unordered_map<int, int> complement_indices;
     vector<int> result;
 
+    // Nested loops: check all pairs (i, j) where j > i
     for (int i = 0; i < nums.size(); i++) {
-        int complement = target - nums[i];
-
-        if (complement_indices.find(nums[i]) != complement_indices.end()) {
-            result.push_back(complement_indices[nums[i]]);
-            result.push_back(i);
-            return result;
+        for (int j = i + 1; j < nums.size(); j++) {
+            if (nums[i] + nums[j] == target) {
+                result.push_back(i);
+                result.push_back(j);
+                return result;
+            }
         }
-
-        complement_indices[complement] = i;
     }
 
     return result;

@@ -23,16 +23,15 @@ cpp_practice/
 │   └── best_time_to_buy_and_sell_stock.cpp
 ├── strings/                # String manipulation problems
 │   └── valid_anagram.cpp
-├── hashing/                # Hash map and frequency problems
-│   └── top_k_frequent_elements.cpp
-├── stack/                  # Stack-based problems
-│   └── valid_parentheses.cpp
-├── linked_list/            # Linked list problems
-│   └── reverse_linked_list.cpp
-├── binary_search/          # Binary search problems
-│   └── binary_search.cpp
-└── dp/                     # Dynamic Programming (introductory)
-    └── climbing_stairs.cpp
+├── structs/                # Struct-based problems
+│   └── student_average.cpp
+├── multi_dimensional_arrays/  # 2D array problems
+│   ├── matrix_diagonal_sum.cpp
+│   ├── matrix_transpose.cpp
+│   └── row_max_sum.cpp
+└── recursion/              # Recursion problems
+    ├── recursive_factorial.cpp
+    └── recursive_grid_paths.cpp
 ```
 
 ### How to Run
@@ -60,11 +59,12 @@ g++ -std=c++17 cpp_practice/arrays/two_sum.cpp -O2 -o two_sum
 | Arrays | Two Sum | Easy |
 | Arrays | Best Time to Buy and Sell Stock | Easy |
 | Strings | Valid Anagram | Easy |
-| Hashing | Top K Frequent Elements | Medium |
-| Stack | Valid Parentheses | Easy |
-| Linked List | Reverse Linked List | Easy |
-| Binary Search | Binary Search | Easy |
-| DP | Climbing Stairs | Easy |
+| Structs | Student Average | Easy |
+| Multi-dimensional Arrays | Matrix Diagonal Sum | Easy |
+| Multi-dimensional Arrays | Matrix Transpose | Easy |
+| Multi-dimensional Arrays | Row Max Sum | Easy |
+| Recursion | Recursive Factorial | Easy |
+| Recursion | Recursive Grid Paths | Easy |
 
 For a complete learning path and more details, see [cpp_practice/README.md](cpp_practice/README.md)
 
