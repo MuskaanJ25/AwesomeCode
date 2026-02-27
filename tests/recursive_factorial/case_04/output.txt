@@ -1,0 +1,1 @@
+Enter a non-negative integer: Factorial of 10: 3628800

@@ -1,0 +1,10 @@
+Enter number of steps: Number of distinct ways to climb 7 steps: 21
+
+Explanation: This follows the Fibonacci-like pattern:
+Steps 1: 1 way (1)
+Steps 2: 2 ways (1+1, 2)
+Steps 3: 3 ways
+Steps 4: 5 ways
+Steps 5: 8 ways
+Steps 6: 13 ways
+Steps 7: 21 ways
