@@ -23,6 +23,18 @@ g++ -std=c++17 arrays/two_sum.cpp -O2 -o two_sum
 - `two_sum.cpp` - Find two numbers that add up to target
 - `best_time_to_buy_and_sell_stock.cpp` - Max profit from stock prices
 
+### Binary Search
+- `binary_search.cpp` - Find element in sorted array
+
+### Dynamic Programming
+- `climbing_stairs.cpp` - Count ways to climb stairs
+
+### Hashing
+- `top_k_frequent_elements.cpp` - Find top k frequent elements
+
+### Linked List
+- `reverse_linked_list.cpp` - Reverse a singly linked list
+
 ### Strings
 - `valid_anagram.cpp` - Check if two strings are anagrams
 
@@ -38,13 +50,21 @@ g++ -std=c++17 arrays/two_sum.cpp -O2 -o two_sum
 - `recursive_factorial.cpp` - Calculate factorial using recursion
 - `recursive_grid_paths.cpp` - Count paths in a grid using recursion
 
+### Stack
+- `valid_parentheses.cpp` - Check if parentheses are valid
+
 ## Learning Path
 
 1. **Start with Arrays**: `two_sum.cpp`, `best_time_to_buy_and_sell_stock.cpp`
-2. **Move to Strings**: `valid_anagram.cpp`
-3. **Learn Structs**: `student_average.cpp`
-4. **Multi-dimensional Arrays**: `matrix_diagonal_sum.cpp`, `matrix_transpose.cpp`, `row_max_sum.cpp`
-5. **Practice Recursion**: `recursive_factorial.cpp`, `recursive_grid_paths.cpp`
+2. **Binary Search**: `binary_search.cpp`
+3. **Dynamic Programming**: `climbing_stairs.cpp`
+4. **Hashing**: `top_k_frequent_elements.cpp`
+5. **Move to Strings**: `valid_anagram.cpp`
+6. **Learn Structs**: `student_average.cpp`
+7. **Multi-dimensional Arrays**: `matrix_diagonal_sum.cpp`, `matrix_transpose.cpp`, `row_max_sum.cpp`
+8. **Recursion**: `recursive_factorial.cpp`, `recursive_grid_paths.cpp`
+9. **Stack**: `valid_parentheses.cpp`
+10. **Linked List**: `reverse_linked_list.cpp`
 
 ## File Format
 
@@ -88,21 +108,33 @@ tests/
 
 ### Running Tests
 
-To test a program against its test cases:
+Test scripts are provided to automate testing:
 
 ```bash
-# Navigate to cpp_practice directory
-cd cpp_practice
+# From the repository root, run all tests
+./run_all_tests.sh
 
+# Run a specific test case for a program
+./run_test.sh <program_name> <case_number>
+# Example: ./run_test.sh two_sum 01
+```
+
+The `run_all_tests.sh` script:
+- Compiles each program once (cache in `/tmp/cpp_practice_build`)
+- Runs all 10 test cases for each program
+- Compares actual output with expected output
+- Provides color-coded summary of passed/failed tests
+- Returns non-zero exit code if any test fails
+
+You can also run tests manually from the repository root:
+
+```bash
 # Compile the program
-g++ -std=c++17 arrays/two_sum.cpp -O2 -o two_sum
+g++ -std=c++17 cpp_practice/arrays/two_sum.cpp -O2 -o two_sum
 
-# Run with test input
-./two_sum < ../tests/two_sum/case_01/input.txt
-
-# Compare output with expected result
-./two_sum < ../tests/two_sum/case_01/input.txt > actual.txt
-diff actual.txt ../tests/two_sum/case_01/output.txt
+# Run with test input and compare with expected output
+./two_sum < tests/two_sum/case_01/input.txt > actual.txt
+diff actual.txt tests/two_sum/case_01/output.txt
 ```
 
 ### Test Coverage

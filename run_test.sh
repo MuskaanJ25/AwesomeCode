@@ -18,6 +18,9 @@ TEST_DIR="tests/$PROGRAM/case_$CASE"
 PROGRAM_FILE=""
 
 # Find the program file
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+cd "$SCRIPT_DIR"
+
 if [ -f "cpp_practice/arrays/$PROGRAM.cpp" ]; then
     PROGRAM_FILE="cpp_practice/arrays/$PROGRAM.cpp"
 elif [ -f "cpp_practice/binary_search/$PROGRAM.cpp" ]; then
@@ -41,7 +44,7 @@ elif [ -f "cpp_practice/structs/$PROGRAM.cpp" ]; then
 else
     echo "Error: Program '$PROGRAM' not found"
     echo "Available programs:"
-    ls -1 tests/ | grep -v "run_test" | sed 's/^/  /'
+    (cd "$SCRIPT_DIR" && ls -1 tests/ 2>/dev/null | sed 's/^/  /')
     exit 1
 fi
 
