@@ -1,0 +1,6 @@
+Enter number of students: Enter student name: Enter number of subjects: Enter scores: Enter student name: Enter number of subjects: Enter scores: Enter student name: Enter number of subjects: Enter scores: Enter student name: Enter number of subjects: Enter scores: 
+Results:
+X: 80.00
+Y: 85.00
+Z: 90.00
+W: 95.00

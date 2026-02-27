@@ -1,0 +1,1 @@
+Enter size of array: Enter sorted array elements: Enter target to search: Target 6 found at index: 2

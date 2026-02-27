@@ -1,0 +1,2 @@
+Enter brackets string: false
+The brackets are NOT properly matched!

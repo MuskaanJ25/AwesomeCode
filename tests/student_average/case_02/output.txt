@@ -1,0 +1,3 @@
+Enter number of students: Enter student name: Enter number of subjects: Enter scores: 
+Results:
+John: 100.00

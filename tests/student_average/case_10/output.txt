@@ -1,0 +1,4 @@
+Enter number of students: Enter student name: Enter number of subjects: Enter scores: Enter student name: Enter number of subjects: Enter scores: 
+Results:
+Perfect: 100.00
+Average: 50.00

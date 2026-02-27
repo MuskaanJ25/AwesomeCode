@@ -1,0 +1,1 @@
+Enter size of array: Enter array elements: Enter k (number of most frequent elements): Top 2 frequent elements: 2 1

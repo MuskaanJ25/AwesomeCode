@@ -1,0 +1,5 @@
+Enter matrix dimensions (rows cols): Enter matrix elements row by row:
+
+Transposed matrix:
+1 3 5
+2 4 6

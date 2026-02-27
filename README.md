@@ -68,6 +68,42 @@ g++ -std=c++17 cpp_practice/arrays/two_sum.cpp -O2 -o two_sum
 
 For a complete learning path and more details, see [cpp_practice/README.md](cpp_practice/README.md)
 
+### Tests
+
+Test cases are provided for all practice problems in the `tests/` directory. Each program has 10 test cases covering edge cases and typical scenarios.
+
+#### Test Structure
+
+```
+tests/
+├── two_sum/
+│   ├── case_01/
+│   │   ├── input.txt
+│   │   └── output.txt
+│   ├── case_02/
+│   │   ├── input.txt
+│   │   └── output.txt
+│   └── ... (cases 03-10)
+├── best_time_to_buy_and_sell_stock/
+│   └── ... (10 test cases)
+└── ... (other problems with 10 test cases each)
+```
+
+#### Running Tests
+
+To run a program against a specific test case:
+
+```bash
+# Compile the program
+g++ -std=c++17 cpp_practice/arrays/two_sum.cpp -O2 -o two_sum
+
+# Run with test input and compare with expected output
+./two_sum < tests/two_sum/case_01/input.txt > actual_output.txt
+diff actual_output.txt tests/two_sum/case_01/output.txt
+```
+
+All test outputs include the program's prompts and complete stdout to match the original interface.
+
 ## Legacy Content
 
 The original `hi.cpp` contains various implementations including:

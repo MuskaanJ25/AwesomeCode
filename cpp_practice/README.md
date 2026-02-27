@@ -64,3 +64,53 @@ When adding new problems:
 3. Include complete problem statement in comments
 4. Use C++17 standard
 5. Ensure each file compiles independently
+
+## Tests
+
+Test cases are provided for all practice problems in the `tests/` directory at the repository root.
+
+### Test Structure
+
+Each program has 10 test cases organized as follows:
+
+```
+tests/
+├── two_sum/
+│   ├── case_01/
+│   │   ├── input.txt      # Test input (stdin)
+│   │   └── output.txt     # Expected output (stdout)
+│   ├── case_02/
+│   │   ├── input.txt
+│   │   └── output.txt
+│   └── ... (cases 03-10)
+└── [other programs with similar structure]
+```
+
+### Running Tests
+
+To test a program against its test cases:
+
+```bash
+# Navigate to cpp_practice directory
+cd cpp_practice
+
+# Compile the program
+g++ -std=c++17 arrays/two_sum.cpp -O2 -o two_sum
+
+# Run with test input
+./two_sum < ../tests/two_sum/case_01/input.txt
+
+# Compare output with expected result
+./two_sum < ../tests/two_sum/case_01/input.txt > actual.txt
+diff actual.txt ../tests/two_sum/case_01/output.txt
+```
+
+### Test Coverage
+
+Each program has 10 comprehensive test cases covering:
+- Edge cases (boundary values, empty/single element inputs)
+- Typical use cases
+- Negative numbers, zeros, positive numbers
+- Different input sizes
+
+The `output.txt` files contain the complete program output including any prompts or informational messages to match the original interactive interface.

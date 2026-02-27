@@ -1,0 +1,2 @@
+Enter number of nodes: Enter node values: Original list: 5 -> 10 -> 15 -> 20 -> 25-> NULL
+Reversed list: 25 -> 20 -> 15 -> 10 -> 5-> NULL

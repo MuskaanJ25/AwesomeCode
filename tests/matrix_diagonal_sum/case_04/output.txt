@@ -1,0 +1,2 @@
+Enter size of matrix (n x n): Enter matrix elements row by row:
+Sum of diagonals: 68
