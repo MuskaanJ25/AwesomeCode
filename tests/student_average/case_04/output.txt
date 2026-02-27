@@ -1,0 +1,5 @@
+Enter number of students: Enter student name: Enter number of subjects: Enter scores: Enter student name: Enter number of subjects: Enter scores: Enter student name: Enter number of subjects: Enter scores: 
+Results:
+Emma: 90.00
+Liam: 85.00
+Olivia: 95.00

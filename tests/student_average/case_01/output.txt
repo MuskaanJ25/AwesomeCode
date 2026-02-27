@@ -1,0 +1,5 @@
+Enter number of students: Enter student name: Enter number of subjects: Enter scores: Enter student name: Enter number of subjects: Enter scores: Enter student name: Enter number of subjects: Enter scores: 
+Results:
+Alice: 84.33
+Bob: 77.50
+Charlie: 89.50

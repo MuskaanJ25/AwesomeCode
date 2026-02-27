@@ -1,0 +1,4 @@
+Enter number of students: Enter student name: Enter number of subjects: Enter scores: Enter student name: Enter number of subjects: Enter scores: 
+Results:
+A: 33.33
+B: 66.67

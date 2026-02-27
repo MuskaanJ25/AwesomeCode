@@ -1,0 +1,2 @@
+Enter first string: Enter second string: true
+"abcd" and "dcba" are anagrams!

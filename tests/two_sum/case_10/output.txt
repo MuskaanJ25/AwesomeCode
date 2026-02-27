@@ -1,0 +1,2 @@
+Enter size of array: Enter array elements: Enter target: Indices: 0 1
+Values: 1 + 2 = 3 (target: 3)

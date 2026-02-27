@@ -1,0 +1,2 @@
+Enter size of array: Enter array elements: Enter target: Indices: 4 5
+Values: -5 + -6 = -11 (target: -11)

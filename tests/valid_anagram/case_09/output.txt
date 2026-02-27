@@ -1,0 +1,2 @@
+Enter first string: Enter second string: false
+"test" and "taste" are NOT anagrams!

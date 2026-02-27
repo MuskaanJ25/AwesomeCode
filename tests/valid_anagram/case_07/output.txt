@@ -1,0 +1,2 @@
+Enter first string: Enter second string: true
+"abc" and "abc" are anagrams!

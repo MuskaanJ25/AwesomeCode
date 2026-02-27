@@ -1,0 +1,4 @@
+Enter number of students: Enter student name: Enter number of subjects: Enter scores: Enter student name: Enter number of subjects: Enter scores: 
+Results:
+High: 96.00
+Low: 65.00
